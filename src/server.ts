@@ -10,6 +10,7 @@ import cors from 'cors'
 import cookieParser from 'cookie-parser';
 import user from './routes/users-route';
 import { envs } from './core/config/env';
+import uploadIMG from './routes/upload-route';
 
 
 const app = express();
@@ -50,6 +51,16 @@ app.use(
 		message: "Trop de requete à partir de cette addresse IP sur ce endPoint !"
 	}),
 	user
+);
+
+app.use(
+	"/images",
+	rateLimit({
+		max: envs.MAX_UNIQ_QUERY_NUMBER,
+		windowMs: envs.MAX_UNIQ_QUERY_WINDOW,
+		message: "Trop de requete à partir de cette addresse IP sur ce endPoint !"
+	}),
+	uploadIMG
 );
 
 // Journalisations

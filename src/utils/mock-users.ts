@@ -7,11 +7,3 @@ export const userRoute = {
     DELETE_USER: '/profile',
     REFRESH_TOKEN: '/refresh/:userID',
 }
-
-export const article = {
-    CREATE: '',
-    UPDATE: '',
-    DELETE: '',
-    GET: '',
-    GET_ALL: '',
-}
