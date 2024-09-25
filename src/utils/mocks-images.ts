@@ -4,6 +4,6 @@ export const uploadROUTE = {
 }
 
 export const UPLOAD_MSG = {
-    SUCCESS: "Image uploadée avec succès",
-    FAILED_UPLOAD: "Aucun fichier téléchargé"
+    SUCCESS: "Image successful uploaded 👌, congratulation 👏!",
+    FAILED_UPLOAD: "Aucun fichier téléchargé 🕵️‍♂️"
 }

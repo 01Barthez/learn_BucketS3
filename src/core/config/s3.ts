@@ -11,5 +11,6 @@ const s3 = new S3Client({
     endpoint: envs.MIMIO_URL,
     forcePathStyle: true,
 })
+console.log(envs.AWS_BUCKET_NAME)
 
 export default s3;
