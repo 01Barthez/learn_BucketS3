@@ -1,0 +1,109 @@
+openapi: 3.0.0
+info:
+  description: api desc
+  version: 1.0.0
+  title: api title
+  contact:
+    email: author@gmail.com
+servers:
+  - url: https://<<PRODUCTION_URL>>
+  - url: http://localhost:3000
+paths:
+  '{{url}}/profile':
+    get:
+      summary: getUser
+      security:
+        - bearerAuth: ["read"]
+      tags:
+        - BucketS3
+      parameters: []
+      responses: &ref_0
+        '200':
+          description: Success.
+        '400':
+          description: Missing params on request or validation error.
+        '401':
+          description: Access token is missing or invalid.
+        '403':
+          description: Forbidden.
+        '404':
+          description: Resource not found.
+        '406':
+          description: Not Acceptable.
+        '500':
+          description: Internal Error.
+  '{{url}}users/signup':
+    post:
+      summary: InscriptionOfUser
+      security:
+        - bearerAuth: ["write"]
+      tags:
+        - BucketS3
+      parameters: []
+      responses: *ref_0
+  http://localhost:3000/images/upload:
+    post:
+      summary: upload-Image
+      security:
+        - bearerAuth: ["write"]
+      tags:
+        - BucketS3
+      parameters: []
+      responses: *ref_0
+tags:
+  - name: BucketS3
+components:
+  securitySchemes: {}
+  schemas:
+    MISSING_SECURITY:
+      type: object
+      properties:
+        security_fix:
+          type: boolean
+          example: true
+          maxLength: 255
+          pattern: ^[a-zA-Z0-9]+$
+      additionalProperties: false
+    Pagination:
+      type: object
+      properties:
+        limit:
+          type: number
+          example: 1
+          minimum: 0
+          maximum: 1.7976931348623157e+308
+          format: int32
+          maxLength: 255
+          pattern: ^[a-zA-Z0-9]+$
+        page:
+          type: number
+          example: 1
+          minimum: 0
+          maximum: 1.7976931348623157e+308
+          format: int32
+          maxLength: 255
+          pattern: ^[a-zA-Z0-9]+$
+        count:
+          type: number
+          example: 0
+          minimum: 0
+          maximum: 1.7976931348623157e+308
+          format: int32
+          maxLength: 255
+          pattern: ^[a-zA-Z0-9]+$
+        results:
+          type: array
+          items: {}
+          maxLength: 255
+          pattern: ^[a-zA-Z0-9]+$
+      additionalProperties: false
+    EntityExample:
+      type: object
+      properties:
+        column1:
+          type: boolean
+          example: true
+          maxLength: 255
+          pattern: ^[a-zA-Z0-9]+$
+      additionalProperties: false
+  responses: {}

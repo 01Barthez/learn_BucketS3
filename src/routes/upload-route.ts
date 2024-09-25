@@ -1,7 +1,7 @@
 import { Router } from "express";
 import upload from "../middleware/upload";
 import { uploadROUTE } from "../utils/mocks-images";
-import { uploadImage } from "../core/upload-controllers";
+import { uploadImage } from "../controllers/upload-controllers";
 
 
 const uploadIMG: Router = Router(); 
